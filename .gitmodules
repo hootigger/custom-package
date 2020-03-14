@@ -1,0 +1,24 @@
+[submodule "Lienol"]
+	path = Lienol
+	url = https://github.com/Lienol/openwrt-package.git
+[submodule "Leo-Jo-My/my"]
+	path = Leo-Jo-My/my
+	url = https://github.com/Leo-Jo-My/my.git
+[submodule "Leo-Jo-My/luci-app-vssr"]
+	path = Leo-Jo-My/luci-app-vssr
+	url = https://github.com/Leo-Jo-My/luci-app-vssr.git
+[submodule "luci-app-adguardhome"]
+	path = luci-app-adguardhome
+	url = https://github.com/rufengsuixing/luci-app-adguardhome.git
+[submodule "luci-app-clash"]
+	path = luci-app-clash
+	url = https://github.com/frainzy1477/luci-app-clash.git
+[submodule "luci-app-openclash"]
+	path = luci-app-openclash
+	url = https://github.com/vernesong/OpenClash.git
+[submodule "luci-app-serverchan"]
+	path = luci-app-serverchan
+	url = https://github.com/tty228/luci-app-serverchan.git
+[submodule "Leo-Jo-My/luci-theme-opentomcat"]
+	path = Leo-Jo-My/luci-theme-opentomcat
+	url = https://github.com/Leo-Jo-My/luci-theme-opentomcat
