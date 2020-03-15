@@ -10,6 +10,7 @@
 [submodule "luci-app-clash"]
 	path = luci-app-clash
 	url = https://github.com/frainzy1477/luci-app-clash.git
+	ignore = dirty
 [submodule "luci-app-openclash"]
 	path = luci-app-openclash
 	url = https://github.com/vernesong/OpenClash.git
