@@ -1,9 +1,6 @@
 [submodule "Lienol"]
 	path = Lienol
 	url = https://github.com/Lienol/openwrt-package.git
-[submodule "Leo-Jo-My/luci-app-vssr"]
-	path = Leo-Jo-My/luci-app-vssr
-	url = https://github.com/Leo-Jo-My/luci-app-vssr.git
 [submodule "luci-app-adguardhome"]
 	path = luci-app-adguardhome
 	url = https://github.com/rufengsuixing/luci-app-adguardhome.git
@@ -20,6 +17,4 @@
 [submodule "Leo-Jo-My/luci-theme-opentomcat"]
 	path = Leo-Jo-My/luci-theme-opentomcat
 	url = https://github.com/Leo-Jo-My/luci-theme-opentomcat
-[submodule "Leo-Jo-My_my"]
-	path = Leo-Jo-My_my
-	url = https://github.com/Leo-Jo-My/my.git
+
