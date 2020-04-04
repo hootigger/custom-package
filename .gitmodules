@@ -14,7 +14,7 @@
 [submodule "luci-app-serverchan"]
 	path = luci-app-serverchan
 	url = https://github.com/tty228/luci-app-serverchan.git
-[submodule "Leo-Jo-My/luci-theme-opentomcat"]
-	path = Leo-Jo-My/luci-theme-opentomcat
-	url = https://github.com/Leo-Jo-My/luci-theme-opentomcat
 
+[submodule "luci-theme-opentomcat"]
+	path = luci-theme-opentomcat
+	url = https://github.com/Leo-Jo-My/luci-theme-opentomcat
