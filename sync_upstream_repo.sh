@@ -1,9 +1,9 @@
-#!/bin/bash -x 
+#!/bin/bash
 echo '------------START-------------'
+set -x
 git pull
-echo '-------------------------'
 git submodule update --remote
-echo '-------------------------'
 git add . && git commit -m 'auto sync upstream repo'
 git push
+set +x
 echo '-----------END--------------'
