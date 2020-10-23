@@ -1,0 +1,22 @@
+name: autopull
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 2'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v1
+      - name: Pull All Submodule
+        run: |
+          git submodule update --init --remote --recursive
+      - name: 'Start Push'
+        run: |
+          git push
+        
