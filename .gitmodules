@@ -1,6 +1,7 @@
 [submodule "Lienol"]
 	path = Lienol
 	url = https://github.com/Lienol/openwrt-package.git
+	branch = main
 [submodule "luci-app-adguardhome"]
 	path = luci-app-adguardhome
 	url = https://github.com/rufengsuixing/luci-app-adguardhome.git
