@@ -10,7 +10,7 @@ if [ ! -d ../lede ]; then
 fi
 cd ../lede
 git pull
-./scripts/feed update && ./scripts/feed install
+./scripts/feeds update && ./scripts/feeds install
 make menuconfig
 set +x
 echo '-----------END--------------'
