@@ -10,11 +10,18 @@ if [ ! -d ../lede ]; then
 fi
 cd ../lede
 git pull
-./scripts/feeds update && ./scripts/feeds install
 if [ ! -d package/custom-package ]; then
 	ln -sf /opt/src/custom-package package/custom-package
-	./scripts/feeds update && ./scripts/feeds install
+fi
+./scripts/feeds update && ./scripts/feeds install
+make defconfig
+make clean
+make -j$(nproc) download
+if [ $? -ne 0 ]; then
+    echo "遇到错误."
+    exit 1
 fi
 make menuconfig
+make -j$(nproc) V=s
 set +x
 echo '-----------END--------------'
