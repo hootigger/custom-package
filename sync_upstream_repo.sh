@@ -16,7 +16,7 @@ fi
 ./scripts/feeds update && ./scripts/feeds install
 make defconfig
 make clean
-make -j$(nproc) download
+#make -j$(nproc) download
 if [ $? -ne 0 ]; then
     echo "遇到错误."
     exit 1
