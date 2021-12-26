@@ -16,7 +16,7 @@ fi
 ./scripts/feeds update && ./scripts/feeds install
 make defconfig
 make clean
-if [ $1 == "all" ]; then
+if [[ $1 == "all" ]]; then
 	make dirclean
 fi
 #make -j$(nproc) download
