@@ -10,10 +10,10 @@ if [ ! -d ../lede ]; then
 fi
 cd ../lede
 git pull
-if [ ! -d package/custom-package ]; then
-	ln -sf /opt/src/custom-package package/custom-package
-fi
-./scripts/feeds update && ./scripts/feeds install
+#if [ ! -d package/custom-package ]; then
+#	ln -sf /opt/src/custom-package package/custom-package
+#fi
+./scripts/feeds update -a && ./scripts/feeds install -a
 make defconfig
 make clean
 if [[ $1 == "all" ]]; then
