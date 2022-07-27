@@ -25,4 +25,8 @@
 [submodule "openwrt-passwall"]
 	path = openwrt-passwall
 	url = https://github.com/xiaorouji/openwrt-passwall.git
-	branch = main
+	branch = luci
+[submodule "openwrt-passwall-packages"]
+	path = openwrt-passwall-packages
+	url = https://github.com/xiaorouji/openwrt-passwall
+	branch = packages
