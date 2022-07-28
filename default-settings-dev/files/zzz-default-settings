@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#sed -i 's#downloads.openwrt.org#mirrors.cloud.tencent.com/lede#g' /etc/opkg/distfeeds.conf
+#sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+
+#sed -i "s/# //g" /etc/opkg/distfeeds.conf
+#sed -i '/openwrt_luci/ { s/snapshots/releases\/18.06.9/g; }'  /etc/opkg/distfeeds.conf
+
+echo '# 旁路由,若无法正常访问国内则开启' >> /etc/firewall.user
+echo '#iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE' >> /etc/firewall.user
+
+#sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+#echo "DISTRIB_REVISION='R22.7.7'" >> /etc/openwrt_release
+#sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+#echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
+
+#sed -i '/log-facility/d' /etc/dnsmasq.conf
+#echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
+
+#echo 'hsts=0' > /root/.wgetrc
+
+uci -q batch <<-EOF
+	set network.lan.ipaddr='10.10.10.6'
+	set network.lan.gateway='10.10.10.250'
+	set network.lan.dns='10.10.10.250'
+EOF
+uci commit network
+
+exit 0
