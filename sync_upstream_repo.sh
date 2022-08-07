@@ -14,6 +14,7 @@ git pull
 #	ln -sf /opt/src/custom-package package/custom-package
 #fi
 ./scripts/feeds update -a && ./scripts/feeds install -a
+exit 0
 make defconfig
 make clean
 if [[ $1 == "all" ]]; then
