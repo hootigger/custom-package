@@ -30,3 +30,6 @@
 	path = openwrt-passwall-packages
 	url = https://github.com/xiaorouji/openwrt-passwall
 	branch = packages
+[submodule "luci-app-mosdns"]
+	path = luci-app-mosdns
+	url = https://github.com/sbwml/luci-app-mosdns
