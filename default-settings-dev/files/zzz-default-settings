@@ -7,7 +7,7 @@
 #sed -i '/openwrt_luci/ { s/snapshots/releases\/18.06.9/g; }'  /etc/opkg/distfeeds.conf
 
 echo '# 旁路由,若无法正常访问国内则开启' >> /etc/firewall.user
-echo '#iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE' >> /etc/firewall.user
+echo '#iptables -t nat -I POSTROUTING -o br-lan -j MASQUERADE' >> /etc/firewall.user
 
 #sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 #echo "DISTRIB_REVISION='R22.7.7'" >> /etc/openwrt_release
