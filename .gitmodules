@@ -25,11 +25,11 @@
 [submodule "openwrt-passwall"]
 	path = openwrt-passwall
 	url = https://github.com/xiaorouji/openwrt-passwall.git
-	branch = luci
+	branch = main
 [submodule "openwrt-passwall-packages"]
 	path = openwrt-passwall-packages
-	url = https://github.com/xiaorouji/openwrt-passwall
-	branch = packages
+	url = https://github.com/xiaorouji/openwrt-passwall-packages
+	branch = main
 [submodule "luci-app-mosdns"]
 	path = luci-app-mosdns
 	url = https://github.com/sbwml/luci-app-mosdns
