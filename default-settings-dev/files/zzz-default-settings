@@ -28,6 +28,16 @@ uci commit network
 
 # 设置 dnsmasq
 /etc/init.d/dnsmasq stop
+
+# 禁用dhcpv6
+uci -q batch <<EOF
+	delete dhcp.lan.dhcpv6
+	delete dhcp.lan.leasetime
+	delete dhcp.lan.limit
+	delete dhcp.lan.ra
+	delete dhcp.lan.start
+EOF
+
 uci set dhcp.lan.ignore='1'
 
 uci -q delete dhcp.@dnsmasq[0].server
