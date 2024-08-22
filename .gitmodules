@@ -33,3 +33,7 @@
 [submodule "luci-app-mosdns"]
 	path = luci-app-mosdns
 	url = https://github.com/sbwml/luci-app-mosdns
+[submodule "OpenWrt-mihomo"]
+	path = OpenWrt-mihomo
+	url = https://github.com/morytyann/OpenWrt-mihomo.git
+	branch = main
