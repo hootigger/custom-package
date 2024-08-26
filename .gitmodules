@@ -5,10 +5,6 @@
 [submodule "luci-app-adguardhome"]
 	path = luci-app-adguardhome
 	url = https://github.com/rufengsuixing/luci-app-adguardhome.git
-[submodule "luci-app-clash"]
-	path = luci-app-clash
-	url = https://github.com/frainzy1477/luci-app-clash.git
-	ignore = untracked
 [submodule "luci-app-openclash"]
 	path = luci-app-openclash
 	url = https://github.com/vernesong/OpenClash.git
