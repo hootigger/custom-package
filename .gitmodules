@@ -22,3 +22,6 @@
 	path = OpenWrt-mihomo
 	url = https://github.com/morytyann/OpenWrt-mihomo.git
 	branch = main
+[submodule "luci-app-wechatpush"]
+	path = luci-app-wechatpush
+	url = https://github.com/tty228/luci-app-wechatpush.git
