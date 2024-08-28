@@ -8,9 +8,6 @@
 [submodule "luci-app-openclash"]
 	path = luci-app-openclash
 	url = https://github.com/vernesong/OpenClash.git
-[submodule "luci-app-serverchan"]
-	path = luci-app-serverchan
-	url = https://github.com/tty228/luci-app-serverchan.git
 
 [submodule "luci-theme-opentomcat"]
 	path = luci-theme-opentomcat
