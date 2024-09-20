@@ -8,7 +8,7 @@ git push
 if [ ! -d ../lede ]; then
 	git clone https://github.com/coolsnowwolf/lede.git ../lede
 fi
-cd ../lede
+cd ../immortalwrt
 git pull
 #if [ ! -d package/custom-package ]; then
 	#ln -sf /opt/src/custom-package package/custom-package
