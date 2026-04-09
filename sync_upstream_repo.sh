@@ -8,14 +8,14 @@ REPO_BRANCH="openwrt-24.10"
 REPO_DIR="../immortalwrt"
 
 git pull
-git submodule update --remote --depth 1
+git submodule update --remote
 git add . && git commit -m '[SHELL]Auto sync upstream repo'
 git push
 if [ ! -d "$REPO_DIR" ]; then
-	git clone --depth 1 --single-branch -b "$REPO_BRANCH" "$REPO_URL" "$REPO_DIR"
+	git clone -b "$REPO_BRANCH" "$REPO_URL" "$REPO_DIR"
 fi
 cd "$REPO_DIR"
-git pull --depth 1
+git pull
 
 # 检查 feeds.conf.default 是否已引入 custom-package，若无则添加
 FEEDS_CONF="feeds.conf.default"
