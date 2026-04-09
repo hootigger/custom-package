@@ -20,8 +20,8 @@ git pull --depth 1
 # 检查 feeds.conf.default 是否已引入 custom-package，若无则添加
 FEEDS_CONF="feeds.conf.default"
 CUSTOM_PKG_PATH="/opt/src/custom-package"
-if [ -f "$FEEDS_CONF" ] && ! grep -q "src-link custom-package" "$FEEDS_CONF"; then
-	echo "src-link custom-package $CUSTOM_PKG_PATH" >> "$FEEDS_CONF"
+if [ -f "$FEEDS_CONF" ] && ! grep -q "src-link custom" "$FEEDS_CONF"; then
+	echo "src-link custom $CUSTOM_PKG_PATH" >> "$FEEDS_CONF"
 fi
 
 ./scripts/feeds update -a && ./scripts/feeds install -a
