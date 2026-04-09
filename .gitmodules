@@ -2,26 +2,34 @@
 	path = Lienol
 	url = https://github.com/Lienol/openwrt-package.git
 	branch = main
+	shallow = true
 [submodule "luci-app-adguardhome"]
 	path = luci-app-adguardhome
 	url = https://github.com/rufengsuixing/luci-app-adguardhome.git
+	shallow = true
 [submodule "luci-app-openclash"]
 	path = luci-app-openclash
 	url = https://github.com/vernesong/OpenClash.git
+	shallow = true
 
 [submodule "luci-theme-opentomcat"]
 	path = luci-theme-opentomcat
 	url = https://github.com/Leo-Jo-My/luci-theme-opentomcat
+	shallow = true
 [submodule "ssr-plus"]
 	path = ssr-plus
 	url = https://github.com/fw876/helloworld.git
+	shallow = true
 [submodule "luci-app-mosdns"]
 	path = luci-app-mosdns
 	url = https://github.com/sbwml/luci-app-mosdns
+	shallow = true
 [submodule "OpenWrt-mihomo"]
 	path = OpenWrt-mihomo
 	url = https://github.com/morytyann/OpenWrt-mihomo.git
 	branch = main
+	shallow = true
 [submodule "luci-app-wechatpush"]
 	path = luci-app-wechatpush
 	url = https://github.com/tty228/luci-app-wechatpush.git
+	shallow = true
