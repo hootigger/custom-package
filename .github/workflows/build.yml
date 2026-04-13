@@ -40,26 +40,29 @@ jobs:
 
       - name: 克隆当前仓库 (Clone current repo)
         uses: actions/checkout@v4
+        with:
+          path: custom-package
+          submodules: recursive
 
       - name: 克隆 ImmortalWrt 仓库 (Clone ImmortalWrt repo)
         uses: actions/checkout@v4
         with:
           repository: '${{inputs.owner}}/${{inputs.repo}}'
           ref: ${{inputs.branch}}
-          path: ImmortalWrt
+          path: imopenwrt
 
       - name: 接入 custom-package 并写入 .config (Attach custom-package feed and copy .config)
         run: |
-          cp -f .config ImmortalWrt/.config
-          if ! grep -q "^src-link custom ../$" ImmortalWrt/feeds.conf.default; then
-            echo "src-link custom ../" >> ImmortalWrt/feeds.conf.default
+          cp -f custom-package/.config imopenwrt/.config
+          if ! grep -q "^src-link custom ../custom-package$" imopenwrt/feeds.conf.default; then
+            echo "src-link custom ../custom-package" >> imopenwrt/feeds.conf.default
           fi
 
       - name: 运行 diy.sh（如果存在）(Run diy.sh if present)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: |
-          if [ -f ../diy.sh ]; then
-            cp -f ../diy.sh ./diy.sh
+          if [ -f ../custom-package/diy.sh ]; then
+            cp -f ../custom-package/diy.sh ./diy.sh
             chmod +x diy.sh
             ./diy.sh
           else
@@ -67,11 +70,11 @@ jobs:
           fi
 
       - name: 更新并下载 feeds (Update and download feeds)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: ./scripts/feeds update -a && ./scripts/feeds install -a
 
       - name: 整理 x86_64 配置 (Finalize x86_64 config)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make defconfig
 
       - name: 编译前上传配置 (Upload config before build)
@@ -79,24 +82,24 @@ jobs:
         with:
           name: config-before-build
           path: |
-            ImmortalWrt/feeds.conf.default
-            ImmortalWrt/.config
+            imopenwrt/feeds.conf.default
+            imopenwrt/.config
 
       - name: 多线程编译 ImmortalWrt (Build ImmortalWrt multithreading)
         if: ${{inputs.multithreading == true}}
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make -j$(nproc) V=s
 
       - name: 单线程编译 ImmortalWrt (Build ImmortalWrt single thread)
         if: ${{inputs.multithreading == false}}
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make -j1 V=s
 
       - name: 上传编译结果到 Artifact (Upload build result to Artifact)
         uses: actions/upload-artifact@v4
         with:
           name: ImmortalWrt-build-result
-          path: ImmortalWrt/bin/targets
+          path: imopenwrt/bin/targets
 
   build-ssh:
     if: ${{inputs.ssh == true}}
@@ -110,26 +113,29 @@ jobs:
 
       - name: 克隆当前仓库 (Clone current repo)
         uses: actions/checkout@v4
+        with:
+          path: custom-package
+          submodules: recursive
 
       - name: 克隆 ImmortalWrt 仓库 (Clone ImmortalWrt repo)
         uses: actions/checkout@v4
         with:
           repository: '${{inputs.owner}}/${{inputs.repo}}'
           ref: ${{inputs.branch}}
-          path: ImmortalWrt
+          path: imopenwrt
 
       - name: 接入 custom-package 并写入 .config (Attach custom-package feed and copy .config)
         run: |
-          cp -f .config ImmortalWrt/.config
-          if ! grep -q "^src-link custom ../$" ImmortalWrt/feeds.conf.default; then
-            echo "src-link custom ../" >> ImmortalWrt/feeds.conf.default
+          cp -f custom-package/.config imopenwrt/.config
+          if ! grep -q "^src-link custom ../custom-package$" imopenwrt/feeds.conf.default; then
+            echo "src-link custom ../custom-package" >> imopenwrt/feeds.conf.default
           fi
 
       - name: 运行 diy.sh（如果存在）(Run diy.sh if present)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: |
-          if [ -f ../diy.sh ]; then
-            cp -f ../diy.sh ./diy.sh
+          if [ -f ../custom-package/diy.sh ]; then
+            cp -f ../custom-package/diy.sh ./diy.sh
             chmod +x diy.sh
             ./diy.sh
           else
@@ -137,11 +143,11 @@ jobs:
           fi
 
       - name: 更新并下载 feeds (Update and download feeds)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: ./scripts/feeds update -a && ./scripts/feeds install -a
 
       - name: 整理 x86_64 配置 (Finalize x86_64 config)
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make defconfig
 
       - name: 开启 SSH 服务 (Start SSH service)
@@ -159,21 +165,21 @@ jobs:
         with:
           name: config-before-build
           path: |
-            ImmortalWrt/feeds.conf.default
-            ImmortalWrt/.config
+            imopenwrt/feeds.conf.default
+            imopenwrt/.config
 
       - name: 多线程编译 ImmortalWrt (Build ImmortalWrt multithreading)
         if: ${{inputs.multithreading == true}}
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make -j$(nproc) V=s
 
       - name: 单线程编译 ImmortalWrt (Build ImmortalWrt single thread)
         if: ${{inputs.multithreading == false}}
-        working-directory: ImmortalWrt
+        working-directory: imopenwrt
         run: make -j1 V=s
 
       - name: 上传编译结果到 Artifact (Upload build result to Artifact)
         uses: actions/upload-artifact@v4
         with:
           name: ImmortalWrt-build-result
-          path: ImmortalWrt/bin/targets
+          path: imopenwrt/bin/targets
