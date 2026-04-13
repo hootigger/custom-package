@@ -81,6 +81,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: config-before-build
+          include-hidden-files: true
+          if-no-files-found: error
           path: |
             imopenwrt/feeds.conf.default
             imopenwrt/.config
@@ -165,6 +167,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: config-before-build
+          include-hidden-files: true
+          if-no-files-found: error
           path: |
             imopenwrt/feeds.conf.default
             imopenwrt/.config
