@@ -41,7 +41,7 @@ jobs:
       - name: 克隆当前仓库 (Clone current repo)
         uses: actions/checkout@v4
         with:
-          path: custom-package
+          path: custom
           submodules: recursive
 
       - name: 克隆 ImmortalWrt 仓库 (Clone ImmortalWrt repo)
@@ -53,16 +53,16 @@ jobs:
 
       - name: 接入 custom-package 并写入 .config (Attach custom-package feed and copy .config)
         run: |
-          cp -f custom-package/.config imopenwrt/.config
-          if ! grep -q "^src-link custom ../custom-package$" imopenwrt/feeds.conf.default; then
-            echo "src-link custom ../custom-package" >> imopenwrt/feeds.conf.default
+          cp -f custom/.config imopenwrt/.config
+          if ! grep -q "^src-link custom ../custom$" imopenwrt/feeds.conf.default; then
+            echo "src-link custom ../custom" >> imopenwrt/feeds.conf.default
           fi
 
       - name: 运行 diy.sh（如果存在）(Run diy.sh if present)
         working-directory: imopenwrt
         run: |
-          if [ -f ../custom-package/diy.sh ]; then
-            cp -f ../custom-package/diy.sh ./diy.sh
+          if [ -f ../custom/diy.sh ]; then
+            cp -f ../custom/diy.sh ./diy.sh
             chmod +x diy.sh
             ./diy.sh
           else
@@ -114,7 +114,7 @@ jobs:
       - name: 克隆当前仓库 (Clone current repo)
         uses: actions/checkout@v4
         with:
-          path: custom-package
+          path: custom
           submodules: recursive
 
       - name: 克隆 ImmortalWrt 仓库 (Clone ImmortalWrt repo)
@@ -126,16 +126,16 @@ jobs:
 
       - name: 接入 custom-package 并写入 .config (Attach custom-package feed and copy .config)
         run: |
-          cp -f custom-package/.config imopenwrt/.config
-          if ! grep -q "^src-link custom ../custom-package$" imopenwrt/feeds.conf.default; then
-            echo "src-link custom ../custom-package" >> imopenwrt/feeds.conf.default
+          cp -f custom/.config imopenwrt/.config
+          if ! grep -q "^src-link custom ../custom$" imopenwrt/feeds.conf.default; then
+            echo "src-link custom ../custom" >> imopenwrt/feeds.conf.default
           fi
 
       - name: 运行 diy.sh（如果存在）(Run diy.sh if present)
         working-directory: imopenwrt
         run: |
-          if [ -f ../custom-package/diy.sh ]; then
-            cp -f ../custom-package/diy.sh ./diy.sh
+          if [ -f ../custom/diy.sh ]; then
+            cp -f ../custom/diy.sh ./diy.sh
             chmod +x diy.sh
             ./diy.sh
           else
